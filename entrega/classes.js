@@ -46,15 +46,38 @@ class ProductManager {
     }
 
     deleteProduct(id) {
-        const index = this.products.findIndex(product => product.id === id);
-        if (index !== -1) {
-            this.products.splice(index, 1);
-            this.saveProductsToFile(); // Guardar productos sin el producto eliminado en el archivo
-            return "Producto eliminado exitosamente.";
-        } else {
-            return "Producto no encontrado.";
-        }
+        fs.readFile(this.path, 'utf8', (err, data) => {
+            if (err) {
+                console.error("Error al cargar el archivo:", err);
+                return "Error al eliminar el producto.";
+            }
+
+            try {
+                const products = JSON.parse(data);
+                const index = products.findIndex(product => product.id === id);
+                if (index !== -1) {
+                    products.splice(index, 1);
+
+                    fs.writeFile(this.path, JSON.stringify(products, null, 2), 'utf8', (err) => {
+                        if (err) {
+                            console.error("Error al guardar los productos en el archivo:", err);
+                            return "Error al eliminar el producto.";
+                        }
+                        return "Producto eliminado exitosamente.";
+                    });
+                } else {
+                    console.error("Producto no encontrado.");
+                    return "Producto no encontrado.";
+                }
+            } catch (error) {
+                console.error("Error al parsear el archivo:", error);
+                return "Error al eliminar el producto.";
+            }
+        });
     }
+
+
+
 
     validateProduct(product) {
         if (!product.title || !product.description || !product.price || !product.thumbnail || !product.code || !product.stock) {
@@ -105,5 +128,5 @@ productManager.addProduct(new Product("Producto 1", "Descripción 1", 10.99, "im
 productManager.updateProduct(1, new Product("Producto 1 actualizado", "Descripción 1 actualizada", 12, "imagen1actualizada.jpg", "codigo2", 50))
 productManager.addProduct(new Product("Producto 2", "Descripción 2", 20.99, "imagen2.jpg", "codigo2", 200));
 productManager.addProduct(new Product("Producto 3", "Descripción 3", 30.99, "imagen3.jpg", "codigo3", 300));
-// productManager.deleteProduct(3);
+productManager.deleteProduct(3);
 

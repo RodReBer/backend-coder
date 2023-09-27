@@ -16,14 +16,5 @@
     "code": "codigo2",
     "stock": 200,
     "id": 2
-  },
-  {
-    "title": "Producto 3",
-    "description": "Descripción 3",
-    "price": 30.99,
-    "thumbnail": "imagen3.jpg",
-    "code": "codigo3",
-    "stock": 300,
-    "id": 3
   }
 ]
