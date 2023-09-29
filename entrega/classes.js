@@ -1,8 +1,10 @@
+const { read } = require('fs');
+
 const fs = require('fs').promises;
 
 class ProductManager {
-    constructor() {
-        this.path = "./products.json";
+    constructor(path) {
+        this.path = path;
     }
 
     async getProducts() {
@@ -20,10 +22,21 @@ class ProductManager {
         }
 
         try {
-            let file = await fs.readFile(this.path, "utf-8");
             let products = [];
-            if (file) {
-                products = JSON.parse(file);
+
+            try {
+                // Intenta leer el archivo si existe
+                let file = await fs.readFile(this.path, "utf-8");
+                if (file) {
+                    products = JSON.parse(file);
+                }
+            } catch (readError) {
+                // Si el archivo no existe, lo crea
+                if (readError.code === "ENOENT") {
+                    await fs.writeFile(this.path, "[]", "utf-8");
+                } else {
+                    throw new Error("Error al leer archivo: " + readError.message);
+                }
             }
 
             let product = products.find(prod => prod.code === newProduct.code);
@@ -33,6 +46,8 @@ class ProductManager {
             } else {
                 newProduct.id = products.length + 1;
                 products.push(newProduct);
+
+                // Crea el archivo o sobrescribe si ya existe
                 await fs.writeFile(this.path, JSON.stringify(products, null, 2), "utf-8");
             }
         } catch (error) {
@@ -119,7 +134,7 @@ class Product {
     }
 }
 
-const productManager = new ProductManager();
+const productManager = new ProductManager("./products.json");
 
 // Ejemplo de uso:
 let producto1 = new Product("Producto 1", "Descripción 1", 10.99, "imagen1.jpg", "codigo1", 100);
@@ -148,8 +163,8 @@ let producto10 = new Product("Producto 10", "Descripción 10", 100.99, "imagen10
         await productManager.addProduct(producto10);
 
         // Obtener la lista de productos después de agregarlos
-        const products = await productManager.getProducts();
-        console.log("Productos:", products);
+        // const products = await productManager.getProducts();
+        // console.log("Productos:", products);
     } catch (error) {
         console.error(error.message);
     }
