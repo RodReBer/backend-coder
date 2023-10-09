@@ -2,11 +2,14 @@ import ProductManager from './classes/classes.js';
 import handleBars from 'express-handlebars';
 import express from 'express';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-import { __dirname } from './utils/utils.js';
+export const __filename = fileURLToPath(import.meta.url);
 
-const productManager = new ProductManager("/data/products.json");
-const PORT = 3000;
+export const __dirname = path.dirname(__filename);
+
+const productManager = new ProductManager(__dirname + '/data/products.json');
+const PORT = 8080;
 const app = express();
 
 app.use(express.json());

@@ -29,7 +29,6 @@ class ProductManager {
                     products = JSON.parse(file);
                 }
             } catch (readError) {
-                // Si el archivo no existe, lo crea
                 if (readError.code === "ENOENT") {
                     await fs.writeFile(this.path, "[]", "utf-8");
                 } else {
@@ -44,8 +43,6 @@ class ProductManager {
             } else {
                 newProduct.id = products.length + 1;
                 products.push(newProduct);
-
-                // Crea el archivo o sobrescribe si ya existe
                 await fs.writeFile(this.path, JSON.stringify(products, null, 2), "utf-8");
             }
         } catch (error) {
