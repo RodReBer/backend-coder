@@ -1,14 +1,11 @@
-import ProductManager from './classes/classes.js';
 import handleBars from 'express-handlebars';
 import express from 'express';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import productsRouter from './routes/products.router.js';
+import cartRouter from './routes/cart.router.js';
+import { __dirname } from './utils.js';
+import chatRouter from './routes/chat.router.js';
 
-export const __filename = fileURLToPath(import.meta.url);
-
-export const __dirname = path.dirname(__filename);
-
-const productManager = new ProductManager(__dirname + '/data/products.json');
 const PORT = 8080;
 const app = express();
 
@@ -20,29 +17,18 @@ app.engine('handleBars', handleBars.engine());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "handlebars");
 
-app.get("/products", async (req, res) => {
-    const { limit } = req.query;
-    try {
-        const products = await productManager.getProducts();
-        if (limit) {
-            const productsLimit = products.slice(0, limit);
-            return res.status(200).json(productsLimit);
-        }
-        res.status(200).json(products);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
+app.use("/", chatRouter);
 
-});
+app.use((error, req, res, next) => {
+    const message = `ha ocurrido un error desconocido: (${error.message})`;
+    console.log(message);
+    res.status(500).json({ status: "error", message });
+})
 
-app.get("/products/:pid", async (req, res) => {
-    const { pid } = req.params;
-    const product = await productManager.getProductById(pid);
-    if (!product) {
-        return res.status(404).json({ message: "Producto no encontrado" });
-    }
-    res.status(200).json(product);
-});
+app.use("/api", productsRouter);
+
+app.use("/api", cartRouter);
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT} ...`);

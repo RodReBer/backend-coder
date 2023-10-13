@@ -51,7 +51,6 @@ class ProductManager {
         return newProduct;
     }
 
-
     async getProductById(id) {
         if (!id) {
             throw new Error("No se ha ingresado un ID");
