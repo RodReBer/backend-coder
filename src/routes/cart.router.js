@@ -11,11 +11,11 @@ router.post("/", (req, res) => {
 });
 
 router.get("/:cartId", (req, res) => {
-    const cart = cart[req.params.cartId];
-    if (!cart) {
+    const cartC = cart[req.params.cartId];
+    if (!cartC) {
         return res.status(404).json({ message: "Carrito no encontrado" });
     } else {
-        res.json(cart.products);
+        res.json(cartC.products);
     }
 });
 
