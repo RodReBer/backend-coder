@@ -1,12 +1,21 @@
 [
   {
+    "id": "5f64037f-14d9-4f25-846e-b413d30053f3",
+    "title": "Producto 1",
+    "description": "Descripción 1",
+    "price": 250,
+    "thumbnail": "imagen1.jpg",
+    "code": "codigo1",
+    "stock": 100
+  },
+  {
     "title": "Producto 2",
     "description": "Descripción 2",
     "price": 20.99,
     "thumbnail": "imagen2.jpg",
     "code": "codigo2",
     "stock": 200,
-    "id": 2
+    "id": "c2d175b3-9002-4a6c-bf1d-8baa402e9b31"
   },
   {
     "title": "Producto 3",
@@ -15,7 +24,7 @@
     "thumbnail": "imagen3.jpg",
     "code": "codigo3",
     "stock": 300,
-    "id": 3
+    "id": "e5c81768-92d1-487f-885d-b97e6175c4b7"
   },
   {
     "title": "Producto 4",
@@ -24,7 +33,7 @@
     "thumbnail": "imagen4.jpg",
     "code": "codigo4",
     "stock": 400,
-    "id": 4
+    "id": "e5d5167b-01a8-4976-8d44-f0ba28220992"
   },
   {
     "title": "Producto 5",
@@ -33,7 +42,7 @@
     "thumbnail": "imagen5.jpg",
     "code": "codigo5",
     "stock": 500,
-    "id": 5
+    "id": "6ef57bb8-dba3-40b8-b41a-6375c13c5adc"
   },
   {
     "title": "Producto 6",
@@ -42,7 +51,7 @@
     "thumbnail": "imagen6.jpg",
     "code": "codigo6",
     "stock": 600,
-    "id": 6
+    "id": "18ddb488-2c6a-4a4d-a1aa-bcc788d08160"
   },
   {
     "title": "Producto 7",
@@ -51,7 +60,7 @@
     "thumbnail": "imagen7.jpg",
     "code": "codigo7",
     "stock": 700,
-    "id": 7
+    "id": "80b21856-f9c8-4f8b-8c61-2a82a34dd8f3"
   },
   {
     "title": "Producto 8",
@@ -60,7 +69,7 @@
     "thumbnail": "imagen8.jpg",
     "code": "codigo8",
     "stock": 800,
-    "id": 8
+    "id": "3197c13e-2dd1-49b6-9d30-d8cbf0a82449"
   },
   {
     "title": "Producto 9",
@@ -69,7 +78,7 @@
     "thumbnail": "imagen9.jpg",
     "code": "codigo9",
     "stock": 900,
-    "id": 9
+    "id": "b3e1ce8e-8ebe-490a-8038-d2c616f0d0f1"
   },
   {
     "title": "Producto 10",
@@ -78,6 +87,6 @@
     "thumbnail": "imagen10.jpg",
     "code": "codigo10",
     "stock": 1000,
-    "id": 10
+    "id": "f2f70d04-5d62-434c-b5c2-4b2e5fa5b37a"
   }
 ]

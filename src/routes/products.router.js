@@ -7,7 +7,7 @@ const productManager = new ProductManager(path.join(__dirname, './data/products.
 
 const router = Router();
 
-router.get("/products", async (req, res) => {
+router.get("/", async (req, res) => {
     const { limit } = req.query;
     try {
         const products = await productManager.getProducts();
@@ -22,7 +22,7 @@ router.get("/products", async (req, res) => {
 
 });
 
-router.get("/products/:pid", async (req, res) => {
+router.get("/:pid", async (req, res) => {
     const { pid } = req.params;
     const product = await productManager.getProductById(pid);
     if (!product) {
@@ -31,7 +31,7 @@ router.get("/products/:pid", async (req, res) => {
     res.status(200).json(product);
 });
 
-router.post('/products', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newProduct = req.body;
         await productManager.addProduct(newProduct);
@@ -41,7 +41,7 @@ router.post('/products', async (req, res) => {
     }
 });
 
-router.put("/products/:pid", async (req, res) => {
+router.put("/:pid", async (req, res) => {
     try {
         const { pid } = req.params;
         const updateProduct = req.body;
@@ -52,7 +52,7 @@ router.put("/products/:pid", async (req, res) => {
     }
 });
 
-router.delete("/products/:pid", async (req, res) => {
+router.delete("/:pid", async (req, res) => {
     try {
         const { pid } = req.params
         await productManager.deleteProduct(pid)
