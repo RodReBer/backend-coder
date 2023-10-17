@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/products", productsRouter);
 
-app.use("/api/cart", cartRouter);
+app.use("/api/carts", cartRouter);
 
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT} ...`);
