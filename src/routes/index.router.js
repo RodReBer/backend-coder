@@ -9,7 +9,12 @@ const PM = new ProductManager(path.join(__dirname, './data/products.json'));
 
 router.get("/", async (req, res) => {
     const products = await PM.getProducts();
-    res.render("index", { title: "Backend 2023", products });
+    res.render("home", { title: "Backend 2023", products });
+})
+
+router.get("/realtimeproducts", async (req, res) => {
+    const products = await PM.getProducts();
+    res.render("realTimeProducts", { title: "Backend 2023", products });
 })
 
 export default router;
