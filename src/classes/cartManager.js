@@ -41,6 +41,7 @@ class CartManager {
     };
 
     addProductToCart = async (productId, cartId) => {
+
         let cartById = await this.exist(cartId);
         if (!cartById) return ("Carrito no encontrado");
         let productById = await productAll.exist(productId);
@@ -56,6 +57,7 @@ class CartManager {
             await this.writeCarts(newCart);
             return ("Producto sumado al carrito");
         }
+
         cartById.products.push({ id: productById.id, quantity: 1 });
 
         let newCart = [cartById, ...cartFilter];

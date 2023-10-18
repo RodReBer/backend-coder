@@ -17,11 +17,13 @@
     "handlebars": "^4.7.8",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",
+    "socket.io": "^4.7.2",
     "tailwindcss": "^3.3.3",
     "uuid": "^9.0.1",
     "websocket": "^1.0.34"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2"
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.6"
   }
 }
