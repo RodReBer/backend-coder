@@ -68,7 +68,7 @@ class ProductManager {
     deleteProductById = async (id) => {
         let products = await this.readProducts();
         let product = products.filter(products => products.id != id);
-        await fs.writeFile(this.path, JSON.stringify(products));
+        await fs.writeFile(this.path, JSON.stringify(product));
         return product;
     };
 
@@ -118,6 +118,17 @@ class ProductManager {
 // let producto8 = new Product("Producto 8", "Descripción 8", 80.99, "imagen8.jpg", "codigo8", 800);
 // let producto9 = new Product("Producto 9", "Descripción 9", 90.99, "imagen9.jpg", "codigo9", 900);
 // let producto10 = new Product("Producto 10", "Descripción 10", 100.99, "imagen10.jpg", "codigo10", 1000);
+// let producto11 = new Product("Producto 11", "Descripción 11", 110.99, "imagen11.jpg", "codigo11", 1100);
+// let producto12 = new Product("Producto 12", "Descripción 12", 120.99, "imagen12.jpg", "codigo12", 1200);
+// let producto13 = new Product("Producto 13", "Descripción 13", 130.99, "imagen13.jpg", "codigo13", 1300);
+// let producto14 = new Product("Producto 14", "Descripción 14", 140.99, "imagen14.jpg", "codigo14", 1400);
+// let producto15 = new Product("Producto 15", "Descripción 15", 150.99, "imagen15.jpg", "codigo15", 1500);
+// let producto16 = new Product("Producto 16", "Descripción 16", 160.99, "imagen16.jpg", "codigo16", 1600);
+// let producto17 = new Product("Producto 17", "Descripción 17", 170.99, "imagen17.jpg", "codigo17", 1700);
+// let producto18 = new Product("Producto 18", "Descripción 18", 180.99, "imagen18.jpg", "codigo18", 1800);
+// let producto19 = new Product("Producto 19", "Descripción 19", 190.99, "imagen19.jpg", "codigo19", 1900);
+// let producto20 = new Product("Producto 20", "Descripción 20", 200.99, "imagen20.jpg", "codigo20", 2000);
+
 
 // (async () => {
 
@@ -136,6 +147,16 @@ class ProductManager {
 //     await productManager.addProduct(producto8);
 //     await productManager.addProduct(producto9);
 //     await productManager.addProduct(producto10);
+//     await productManager.addProduct(producto11);
+//     await productManager.addProduct(producto12);
+//     await productManager.addProduct(producto13);
+//     await productManager.addProduct(producto14);
+//     await productManager.addProduct(producto15);
+//     await productManager.addProduct(producto16);
+//     await productManager.addProduct(producto17);
+//     await productManager.addProduct(producto18);
+//     await productManager.addProduct(producto19);
+//     await productManager.addProduct(producto20);
 
 //     const updatedProducts = await productManager.getProducts();
 //     console.log("Productos actualizados:", updatedProducts);

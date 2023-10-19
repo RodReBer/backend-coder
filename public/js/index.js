@@ -51,9 +51,9 @@ socket.on("listProducts", (products) => {
   const botonesQuitar = document.querySelectorAll(".btnDelete");
 
   for (const boton of botonesQuitar) {
-    boton.onclick = (e) => {
+    boton.addEventListener("click", (e) => {
       e.preventDefault();
       socket.emit("deleteProduct", boton.dataset.id);
-    };
+    });
   }
 })
