@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import productsRouter from './routes/products.router.js';
 import cartRouter from './routes/cart.router.js';
+import realTimeProductsRouter from './routes/realTimeProducts.router.js';
 import indexRouter from './routes/index.router.js';
 import { __dirname } from './utils.js';
 
@@ -16,7 +17,7 @@ app.engine('handlebars', handlebars.engine());
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
-app.use("/", indexRouter);
+app.use("/", indexRouter, realTimeProductsRouter);
 
 app.use("/api/products", productsRouter);
 

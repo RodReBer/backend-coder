@@ -1,30 +1,59 @@
-import ProductManager from "../../src/classes/productManager.js";
 const socket = io();
-const PM = new ProductManager(path.join(__dirname, './data/products.json'));
-// const userName = document.getElementById("userName");
 
+// Swal.fire({
+//   title: "Ingrese su Nombre",
+//   input: "text",
+//   inputAttributes: {
+//     autocapitalize: "on",
+//   },
+//   showCancelButton: false,
+//   confirmButtonText: "Ingresar",
+// }).then((result) => {
+//   // userName.innerHTML = result.value;
+//   socket.emit("userConection", { user: result.value });
+// });
+// socket.on('userConection', (data) => {
+//   console.log(data);
+// });
 
-Swal.fire({
-    title: "Ingrese su Nombre",
-    input: "text",
-    inputAttributes: {
-        autocapitalize: "on",
-    },
-    showCancelButton: false,
-    confirmButtonText: "Ingresar",
-}).then((result) => {
-    // userName.innerHTML = result.value;
-    socket.emit("userConection", { user: result.value });
+socket.on("listProducts", (products) => {
+  const divProducts = document.getElementById("products");
+  divProducts.innerHTML = "";
 
-});
-socket.on('userConection', (data) => {
-    console.log(data);
-});
+  products.forEach(product => {
+    const productElement = document.createElement("tr");
+    divProducts.innerHTML += `
+            <td
+              class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0"
+            >${product.title}</td>
+            <td
+              class="whitespace-nowrap px-3 py-4 text-sm text-gray-300"
+            >${product.id}</td>
+            <td
+              class="whitespace-nowrap px-3 py-4 text-sm text-gray-300"
+            >${product.description}</td>
+            <td
+              class="whitespace-nowrap px-3 py-4 text-sm text-gray-300"
+            >${product.price}</td>
+            <td
+              class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
+            >
+              <a
+                href="#"
+                data-id=${product.id}
+                class="text-red-400 hover:text-red-300 btnDelete"
+              >Delete<span class="sr-only">${product.id}</span></a>
+            </td>
+        `;
+    divProducts.appendChild(productElement);
+  });
 
-const botonesQuitar = document.querySelectorAll(".btnQuitar");
-for (const boton of botonesQuitar) {
+  const botonesQuitar = document.querySelectorAll(".btnDelete");
+
+  for (const boton of botonesQuitar) {
     boton.onclick = (e) => {
-        e.preventDefault();
-        PM.deleteProductById(boton.dataset.id);
+      e.preventDefault();
+      socket.emit("deleteProduct", boton.dataset.id);
     };
-}
+  }
+})

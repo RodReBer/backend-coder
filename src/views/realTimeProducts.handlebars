@@ -47,8 +47,8 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-800">
-                  {{#each products}}
+                <tbody class="divide-y divide-gray-800" id="products">
+                  {{!-- {{#each products}}
                     <tr>
                       <td
                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0"
@@ -70,10 +70,9 @@
                           data-id={{this.id}}
                           class="text-red-400 hover:text-red-300 btnDelete"
                         >Delete<span class="sr-only">{{this.id}}</span></a>
-
                       </td>
                     </tr>
-                  {{/each}}
+                  {{/each}} --}}
                 </tbody>
               </table>
             </div>
