@@ -1,20 +1,58 @@
 const socket = io();
 
-// Swal.fire({
-//   title: "Ingrese su Nombre",
-//   input: "text",
-//   inputAttributes: {
-//     autocapitalize: "on",
-//   },
-//   showCancelButton: false,
-//   confirmButtonText: "Ingresar",
-// }).then((result) => {
-//   // userName.innerHTML = result.value;
-//   socket.emit("userConection", { user: result.value });
-// });
-// socket.on('userConection', (data) => {
-//   console.log(data);
-// });
+document.getElementById("btnAddProduct").addEventListener("click", (e) => {
+  Swal.fire({
+    title: "Enter product details",
+    html:
+      `<input required id="title" class="swal2-input placeholder-gray-900 border-gray-900" placeholder="Title">` +
+      `<input required id="description" class="swal2-input placeholder-gray-900 border-gray-900" placeholder="Description">` +
+      `<input required id="price" class="swal2-input placeholder-gray-900 border-gray-900" placeholder="Price">` +
+      `<input required id="thumbnail" class="swal2-input placeholder-gray-900 border-gray-900" placeholder="URL image">` +
+      `<input required id="code" class="swal2-input placeholder-gray-900 border-gray-900" placeholder="Code">` +
+      `<input required id="stock" class="swal2-input placeholder-gray-900 border-gray-900" placeholder="Stock">`,
+    showCancelButton: true,
+    confirmButtonText: "Add",
+    cancelButtonText: "Cancel",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const price = document.getElementById("price").value;
+      const thumbnail = document.getElementById("thumbnail").value;
+      const code = document.getElementById("code").value;
+      const stock = document.getElementById("stock").value;
+
+      socket.emit("addProduct", {
+        title,
+        description,
+        price,
+        thumbnail,
+        code,
+        stock,
+      });
+    }
+  });
+});
+
+
+socket.on("new-client", () => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+  Toast.fire({
+    icon: 'success',
+    title: 'Usuario conectado'
+  })
+})
 
 socket.on("listProducts", (products) => {
   const divProducts = document.getElementById("products");

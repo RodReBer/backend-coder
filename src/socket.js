@@ -26,7 +26,18 @@ export const init = (httpServer) => {
             io.sockets.emit("listProducts", productsAfter);
         });
 
-        // socketClient.broadcast.emit('new-client');
+        socketClient.on("addProduct", async (product) => {
+            await PM.addProduct(product);
+            let productsAfter = await PM.getProducts();
+            io.sockets.emit("listProducts", productsAfter);
+        });
+
+        socketClient.on("disconnect", () => {
+            console.log(`Disconnected ${socketClient.id}`);
+        });
+
+        socketClient.broadcast.emit('new-client');
+
 
         // socketClient.on('userConection', (data) => {
         //     messages.push({
