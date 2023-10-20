@@ -117,6 +117,60 @@ class ProductManager {
     }
 }
 
+let Manager = new ProductManager("./data/products.json");
+
+class Carrito {
+    constructor() {
+        this.id = 0;
+        this.carts = [];
+        this.products = [];
+    }
+
+    addToCart = (num, pid) => {
+        let cartS = this.carts.find(cart => cart.id === num);
+        let repeated = [];
+        if (num >= 0) {
+            this.addProductsToCart(pid);
+            this, carts.push({ id: num, Products: this.products });
+            cartS ? repeated.push(cartS) : null;
+            console.log("repeated", repeated);
+            fs.appendFile('./data/carts.json', JSON.stringify(this.carts), 'utf-8');
+        } else {
+            console.log("El ID debe ser mayor a 0");
+        }
+    }
+    addProductsToCart = (pid) => {
+        if (pid >= 0) {
+            if (this.products.find(p => p.id === pid)) {
+                this.products.find(p => p.id === pid).Quantity++;
+            }
+        } else {
+            console.log("El ID debe ser mayor a 0");
+        }
+    }
+
+    initializeCart = () => {
+    
+        
+    }
+
+    getCart = async() => {
+        try {
+            const file = await fs.readFile("./data/carts.json", 'utf-8');
+            return JSON.parse(file);
+        } catch (error) {
+            throw new Error("Error al obtener productos: " + error.message);
+        }
+    }
+
+    getCartById = (id) => {
+        num ? this.carts.find(cart => cart.id === id) : console.log("El ID debe ser mayor a 0");
+    }
+
+}
+let cart = new Carrito();
+cart.initializeCart();
+
 // class Product {
 //     constructor(title, description, price, thumbnail, code, stock) {
 //         this.title = title;
