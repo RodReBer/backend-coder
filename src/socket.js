@@ -9,7 +9,7 @@ const PM = new ProductManager(path.join(__dirname, './data/products.json'));
 
 const messages = [];
 
-export const init = (httpServer) => {
+export const initSocket = (httpServer) => {
     io = new Server(httpServer);
 
     io.on('connection', async (socketClient) => {

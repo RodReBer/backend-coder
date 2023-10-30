@@ -1,16 +1,14 @@
 import { Router } from "express";
-import ProductManager from "../classes/productManager.js";
 import { __dirname } from "../utils.js";
-import path from 'path';
-
-const productManager = new ProductManager(path.join(__dirname, './data/products.json'));
+import ProductManager from "../dao/ProductManager.js"
 
 const router = Router();
 
 router.get("/", async (req, res) => {
     const { limit } = req.query;
+    const { query = {} } = req;
     try {
-        const products = await productManager.getProducts();
+        const products = await ProductManager.get(query);
         if (limit) {
             const productsLimit = products.slice(0, limit);
             return res.status(200).json(productsLimit);
@@ -23,8 +21,8 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:pid", async (req, res) => {
-    const { pid } = req.params;
-    const product = await productManager.getProductById(pid);
+    const { params: { pid } } = req;
+    const product = await ProductManager.getById(pid);
     if (!product) {
         return res.status(404).json({ message: "Producto no encontrado" });
     }
@@ -33,9 +31,9 @@ router.get("/:pid", async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const newProduct = req.body;
-        await productManager.addProduct(newProduct);
-        res.status(201).json({ message: 'Producto agregado correctamente' });
+        const { body } = req;
+        const product = await ProductManager.create(body);
+        res.status(201).json(product);
     } catch (error) {
         res.status(500).json({ error: 'Error al agregar el producto' });
     }
@@ -43,10 +41,9 @@ router.post('/', async (req, res) => {
 
 router.put("/:pid", async (req, res) => {
     try {
-        const { pid } = req.params;
-        const updateProduct = req.body;
-        await productManager.updateProduct(pid, updateProduct);
-        res.status(200).json({ message: "Producto actualizado" });
+        const { params: { pid }, body } = req;
+        await ProductManager.updateById(pid, body);
+        res.status(204).end();
     } catch (error) {
         res.status(404).json({ error: "Error al actualizar el producto" });
     }
@@ -54,12 +51,12 @@ router.put("/:pid", async (req, res) => {
 
 router.delete("/:pid", async (req, res) => {
     try {
-        const { pid } = req.params
-        await productManager.deleteProduct(pid)
-        res.status(201).json({ message: 'Producto borrado correctamente' });
+        const { params: { pid } } = req;
+        await ProductManager.deleteById(pid);
+        res.status(204).end();
     } catch (error) {
-        res.status(500).json({ error: 'Error al borrar el producto' });
+        res.status(404).json({ error: "Error al actualizar el producto" });
     }
-})
+});
 
 export default router;
