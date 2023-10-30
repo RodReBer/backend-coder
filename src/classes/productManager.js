@@ -1,19 +1,33 @@
-// const fs = require('fs').promises;
 import fs from 'fs/promises';
+import { v4 as uuidv4 } from 'uuid';
 
 class ProductManager {
     constructor(path) {
         this.path = path;
     }
 
-    async getProducts() {
-        try {
-            const file = await fs.readFile(this.path, 'utf-8');
-            return JSON.parse(file);
-        } catch (error) {
-            throw new Error("Error al obtener productos: " + error.message);
-        }
+    exist = async (id) => {
+        let products = await this.readProducts();
+        return products.find((product) => product.id === id);
     }
+
+    readProducts = async () => {
+        let products = await fs.readFile(this.path, 'utf-8');
+        return JSON.parse(products);
+    };
+
+    getProducts = async () => {
+        let products = await this.readProducts();
+        return products;
+    };
+
+    getProductById = async (id) => {
+        let products = this.exist(id);
+
+        if (!products) return ("Producto no encontrado");
+
+        return products;
+    };
 
     async addProduct(newProduct) {
         if (!newProduct) {
@@ -36,12 +50,12 @@ class ProductManager {
                 }
             }
 
-            let product = products.find(prod => prod.code === newProduct.code);
+            let existingProduct = products.find(prod => prod.id === newProduct.id);
 
-            if (product) {
-                throw new Error("Código ya existente");
+            if (existingProduct) {
+                throw new Error("Ya existe un producto con el mismo ID");
             } else {
-                newProduct.id = products.length + 1;
+                newProduct.id = uuidv4();
                 products.push(newProduct);
                 await fs.writeFile(this.path, JSON.stringify(products, null, 2), "utf-8");
             }
@@ -49,72 +63,34 @@ class ProductManager {
             throw new Error("Error al agregar producto: " + error.message);
         }
         return newProduct;
-    }
+    };
 
-    async getProductById(id) {
-        if (!id) {
-            throw new Error("No se ha ingresado un ID");
-        }
+    deleteProductById = async (id) => {
+        let products = await this.readProducts();
+        let product = products.filter(products => products.id != id);
+        await fs.writeFile(this.path, JSON.stringify(product));
+        return product;
+    };
 
+    updateProduct = async (id, updates) => {
         try {
-            const file = await fs.readFile(this.path, 'utf-8');
-            const products = JSON.parse(file);
-            const product = products.find(product => product.id == id);
+            let oldProducts = await this.readProducts();
 
-            if (!product) {
-                throw new Error("Producto no encontrado");
+            const indexToUpdate = oldProducts.findIndex((product) => product.id === id);
+
+            if (indexToUpdate === -1) {
+                throw new Error(`El producto con ID ${id} no existe.`);
             }
 
-            return product;
+            oldProducts[indexToUpdate] = { id, ...updates };
+
+            await fs.writeFile(this.path, JSON.stringify(oldProducts));
+
+            return oldProducts[indexToUpdate];
         } catch (error) {
-            throw new Error("Error al obtener producto por ID: " + error.message);
+            throw error;
         }
-    }
-
-    async updateProduct(id, updateProduct) {
-        if (!id || !updateProduct) {
-            throw new Error("Producto no encontrado");
-        }
-
-        try {
-            const file = await fs.readFile(this.path, "utf-8");
-            const products = JSON.parse(file);
-            const productIndex = products.findIndex(prod => prod.id === id);
-
-            if (productIndex === -1) {
-                throw new Error("ID no encontrado: " + id);
-            }
-
-            updateProduct.id = id;
-            products[productIndex] = updateProduct;
-
-            await fs.writeFile(this.path, JSON.stringify(products, null, 2), "utf-8");
-        } catch (error) {
-            throw new Error("Error al actualizar producto: " + error.message);
-        }
-        return updateProduct;
-    }
-
-    async deleteProduct(id) {
-        if (!id) {
-            throw new Error("No se ha ingresado un ID");
-        }
-
-        try {
-            const file = await fs.readFile(this.path, "utf-8");
-            const products = JSON.parse(file);
-            const productIndex = products.findIndex(prod => prod.id === id);
-
-            if (productIndex === -1) {
-                throw new Error("ID inválido o no encontrado: " + id);
-            }
-
-            products.splice(productIndex, 1);
-            await fs.writeFile(this.path, JSON.stringify(products, null, 2), "utf-8");
-        } catch (error) {
-            throw new Error("Error al eliminar producto: " + error.message);
-        }
-    }
+    };
 }
 
 let Manager = new ProductManager("./data/products.json");
@@ -196,6 +172,17 @@ cart.initializeCart();
 // let producto8 = new Product("Producto 8", "Descripción 8", 80.99, "imagen8.jpg", "codigo8", 800);
 // let producto9 = new Product("Producto 9", "Descripción 9", 90.99, "imagen9.jpg", "codigo9", 900);
 // let producto10 = new Product("Producto 10", "Descripción 10", 100.99, "imagen10.jpg", "codigo10", 1000);
+// let producto11 = new Product("Producto 11", "Descripción 11", 110.99, "imagen11.jpg", "codigo11", 1100);
+// let producto12 = new Product("Producto 12", "Descripción 12", 120.99, "imagen12.jpg", "codigo12", 1200);
+// let producto13 = new Product("Producto 13", "Descripción 13", 130.99, "imagen13.jpg", "codigo13", 1300);
+// let producto14 = new Product("Producto 14", "Descripción 14", 140.99, "imagen14.jpg", "codigo14", 1400);
+// let producto15 = new Product("Producto 15", "Descripción 15", 150.99, "imagen15.jpg", "codigo15", 1500);
+// let producto16 = new Product("Producto 16", "Descripción 16", 160.99, "imagen16.jpg", "codigo16", 1600);
+// let producto17 = new Product("Producto 17", "Descripción 17", 170.99, "imagen17.jpg", "codigo17", 1700);
+// let producto18 = new Product("Producto 18", "Descripción 18", 180.99, "imagen18.jpg", "codigo18", 1800);
+// let producto19 = new Product("Producto 19", "Descripción 19", 190.99, "imagen19.jpg", "codigo19", 1900);
+// let producto20 = new Product("Producto 20", "Descripción 20", 200.99, "imagen20.jpg", "codigo20", 2000);
+
 
 // (async () => {
 
@@ -214,6 +201,16 @@ cart.initializeCart();
 //     await productManager.addProduct(producto8);
 //     await productManager.addProduct(producto9);
 //     await productManager.addProduct(producto10);
+//     await productManager.addProduct(producto11);
+//     await productManager.addProduct(producto12);
+//     await productManager.addProduct(producto13);
+//     await productManager.addProduct(producto14);
+//     await productManager.addProduct(producto15);
+//     await productManager.addProduct(producto16);
+//     await productManager.addProduct(producto17);
+//     await productManager.addProduct(producto18);
+//     await productManager.addProduct(producto19);
+//     await productManager.addProduct(producto20);
 
 //     const updatedProducts = await productManager.getProducts();
 //     console.log("Productos actualizados:", updatedProducts);
@@ -223,7 +220,7 @@ cart.initializeCart();
 //     newProduct1.price = 250;
 //     const newProductUpdated = await productManager.updateProduct(productId, newProduct1);
 //     console.log("Producto actualizado:", newProductUpdated);
-//     await productManager.deleteProduct(productId);
+//     await productManager.deleteProductById(productId);
 //     console.log("Producto eliminado.");
 //     const deletedProduct = await productManager.getProductById(productId);
 //     console.log("Producto eliminado encontrado por ID:", deletedProduct);

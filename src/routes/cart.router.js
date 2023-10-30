@@ -1,38 +1,28 @@
 import { Router } from "express";
+import cartManager from "../classes/cartManager.js";
+import { __dirname } from "../utils.js";
+import path from 'path';
 
 const router = Router();
+const carts = new cartManager(path.join(__dirname, './data/carts.json'));
 
-const cart = [];
-
-router.post("/", (req, res) => {
-    const cartId = cart.length + 1;
-    cart[cartId] = { id: cartId, products: [] };
-    res.status(201).json(cart[cartId]);
+router.get("/", async (req, res) => {
+    res.send(await carts.readCarts());
 });
 
-router.get("/:cartId", (req, res) => {
-    const cartC = cart[req.params.cartId];
-    if (!cartC) {
-        return res.status(404).json({ message: "Carrito no encontrado" });
-    } else {
-        res.json(cartC.products);
-    }
+router.post("/", async (req, res) => {
+    res.send(await carts.addCarts());
 });
 
-router.post("/:cartId/product/:pid", (req, res) => {
-    const cart = cart[req.params.cartId];
-    if (!cart) {
-        return res.status(404).json({ message: "Carrito no encontrado" });
-    } else {
-        const productId = req.params.pid;
-        const product = { id: productId, quantity: 1 };
-        const productInCart = cart.products.find(product => product.id === productId);
-        if (productInCart) {
-            productInCart.quantity++;
-        } else {
-            cart.products.push(product);
-        }
-        res.json(cart.products);
-    }
+router.get("/:cartId", async (req, res) => {
+    res.send(await carts.getCartById(req.params.cartId));
 });
+
+router.post("/:cid/products/:pid", async (req, res) => {
+    const cart = req.params.cid;
+    let productId = req.params.pid;
+    res.send(await carts.addProductToCart(productId, cart));
+
+});
+
 export default router;

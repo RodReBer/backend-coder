@@ -1,0 +1,11 @@
+[
+  {
+    "id": "5f64037f-14d9-4f25-846e-b413d30053f3",
+    "products": [
+      { "id": "18ddb488-2c6a-4a4d-a1aa-bcc788d08160", "quantity": 3 }
+    ]
+  },
+  { "id": "80fa642b-6dec-4dd2-9794-bfc2c03478d2", "products": [] },
+  { "id": "515bbccd-c966-4b34-b6fe-6afdcb371c3a", "products": [] },
+  { "id": "735d782a-d480-4c8c-ab3e-7bebbfc48d10", "products": [] }
+]
