@@ -1,10 +1,10 @@
 import handlebars from 'express-handlebars';
 import express from 'express';
 import path from 'path';
-import productsRouter from './routes/products.router.js';
-import cartRouter from './routes/cart.router.js';
-import realTimeProductsRouter from './routes/realTimeProducts.router.js';
-import indexRouter from './routes/index.router.js';
+import productsApiRouter from './routes/api/products.router.js';
+import cartRouter from './routes/api/cart.router.js';
+import realTimeProductsRouter from './routes/views/realTimeProducts.router.js';
+import productsViewsRouter from './routes/views/products.router.js';
 import { __dirname } from './utils.js';
 
 const app = express();
@@ -17,9 +17,9 @@ app.engine('handlebars', handlebars.engine());
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
-app.use("/", indexRouter, realTimeProductsRouter);
+app.use("/", productsViewsRouter, realTimeProductsRouter);
 
-app.use("/api/products", productsRouter);
+app.use("/api/products", productsApiRouter);
 
 app.use("/api/carts", cartRouter);
 
@@ -29,9 +29,6 @@ app.use((error, req, res, next) => {
     res.status(500).json({ status: "error", message });
 })
 
-app.use("/api/products", productsRouter);
-
-app.use("/api/carts", cartRouter);
     
 export default app;
 

@@ -1,34 +1,32 @@
 import { Server } from 'socket.io';
-import ProductManager from "./classes/productManager.js";
 import path from 'path';
 import { __dirname } from './utils.js';
+import ProductManager from "../src/dao/ProductManager.js";
 
 let io;
 
-const PM = new ProductManager(path.join(__dirname, './data/products.json'));
-
 const messages = [];
 
-export const init = (httpServer) => {
+export const initSocket = (httpServer) => {
     io = new Server(httpServer);
 
     io.on('connection', async (socketClient) => {
 
         console.log(`New connection ${socketClient.id}`);
 
-        let productsBefore = await PM.getProducts();
+        let productsBefore = await ProductManager.get();
 
         socketClient.emit('listProducts', productsBefore);
 
         socketClient.on("deleteProduct", async (id) => {
-            await PM.deleteProductById(id);
-            let productsAfter = await PM.getProducts();
+            await ProductManager.deleteById(id);
+            let productsAfter = await ProductManager.get();
             io.sockets.emit("listProducts", productsAfter);
         });
 
         socketClient.on("addProduct", async (product) => {
-            await PM.addProduct(product);
-            let productsAfter = await PM.getProducts();
+            await ProductManager.create(product);
+            let productsAfter = await ProductManager.get();
             io.sockets.emit("listProducts", productsAfter);
         });
 
@@ -37,7 +35,6 @@ export const init = (httpServer) => {
         });
 
         socketClient.broadcast.emit('new-client');
-
 
         // socketClient.on('userConection', (data) => {
         //     messages.push({

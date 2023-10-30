@@ -34,7 +34,6 @@ document.getElementById("btnAddProduct").addEventListener("click", (e) => {
   });
 });
 
-
 socket.on("new-client", () => {
   const Toast = Swal.mixin({
     toast: true,
