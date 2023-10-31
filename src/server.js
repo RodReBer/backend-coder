@@ -10,7 +10,7 @@ await initDB();
 const server = http.createServer(app);
 
 server.listen(PORT, () => {
-    console.log(`Server listening on localhost:${PORT}`);
+    console.log(`Server listening on http://localhost:${PORT}`);
 });
 
 initSocket(server);
