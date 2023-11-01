@@ -1,13 +1,13 @@
 import { Server } from 'socket.io';
 import { __dirname } from './utils.js';
 import ProductManager from "../src/dao/ProductManager.js";
+import MessageManager from "../src/dao/MessageManager.js";
+
 
 let io;
-
+const messages = [];
 
 export const initSocket = (httpServer) => {
-    const messages = [];
-
     io = new Server(httpServer);
 
     io.on('connection', async (socketClient) => {
@@ -16,7 +16,12 @@ export const initSocket = (httpServer) => {
 
         let productsBefore = await ProductManager.get();
 
+        let messagesBefore = await MessageManager.get();
+
         socketClient.emit('listProducts', productsBefore);
+
+        socketClient.emit('listMessages', messagesBefore);
+
 
         socketClient.on("deleteProduct", async (id) => {
             await ProductManager.deleteById(id);
@@ -30,29 +35,39 @@ export const initSocket = (httpServer) => {
             io.sockets.emit("listProducts", productsAfter);
         });
 
-        socketClient.on("new-user", (data) => {
+        socketClient.on("new-user", async (data) => {
             const fecha = new Date().toTimeString().split(" ")[0]
             const user = ({
-                id: socketClient.id,
                 name: data.name,
                 date: fecha,
                 img: data.imageUrl,
             })
-            messages.push(user);
-            socketClient.broadcast.emit("new-user", messages);
-            socketClient.emit("personal-conection", messages);
+
+            let messages = await MessageManager.get();
+
+            if (messages.length == 0) {
+                socketClient.broadcast.emit("first-new-user", user);
+                socketClient.emit("first-personal-conection", user);
+            } else {
+                socketClient.broadcast.emit("new-user", messages);
+                socketClient.emit("personal-conection", messages);
+            }
         });
 
         //msg de enviado 
-        socketClient.on("user-message", (data) => {
-            const fecha = new Date().toTimeString().split(" ")[0]
-            messages.push({
-                id: socketClient.id,
+        socketClient.on("user-message", async (data) => {
+            const hora = new Date().toTimeString().split(" ")[0]
+            const message = ({
+                user: data.email,
                 name: data.name,
+                img: data.image,
                 message: data.message,
-                date: fecha,
-                img: data.imageUrl,
+                date: hora
             })
+
+            await MessageManager.create(message);
+            let messages = await MessageManager.get();
+
             io.sockets.emit("user-message", messages);
         });
 
