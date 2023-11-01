@@ -1,3 +1,4 @@
+
 const socket = io();
 
 document.getElementById("btnAddProduct").addEventListener("click", (e) => {
@@ -34,24 +35,24 @@ document.getElementById("btnAddProduct").addEventListener("click", (e) => {
   });
 });
 
-socket.on("new-client", () => {
-  const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
+// socket.on("new-client", () => {
+//   const Toast = Swal.mixin({
+//     toast: true,
+//     position: 'top-end',
+//     showConfirmButton: false,
+//     timer: 3000,
+//     timerProgressBar: true,
+//     didOpen: (toast) => {
+//       toast.addEventListener('mouseenter', Swal.stopTimer)
+//       toast.addEventListener('mouseleave', Swal.resumeTimer)
+//     }
+//   })
 
-  Toast.fire({
-    icon: 'success',
-    title: 'Usuario conectado'
-  })
-})
+//   Toast.fire({
+//     icon: 'success',
+//     title: 'Usuario conectado'
+//   })
+// })
 
 socket.on("listProducts", (products) => {
   const divProducts = document.getElementById("products");
@@ -94,3 +95,7 @@ socket.on("listProducts", (products) => {
     });
   }
 })
+
+
+
+// const comment = document.querySelector(".comment");

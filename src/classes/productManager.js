@@ -126,11 +126,11 @@ class Carrito {
     }
 
     initializeCart = () => {
-    
-        
+
+
     }
 
-    getCart = async() => {
+    getCart = async () => {
         try {
             const file = await fs.readFile("./data/carts.json", 'utf-8');
             return JSON.parse(file);

@@ -1,18 +1,18 @@
 import { Server } from 'socket.io';
-import path from 'path';
 import { __dirname } from './utils.js';
 import ProductManager from "../src/dao/ProductManager.js";
 
 let io;
 
-const messages = [];
 
 export const initSocket = (httpServer) => {
+    const messages = [];
+
     io = new Server(httpServer);
 
     io.on('connection', async (socketClient) => {
 
-        console.log(`New connection ${socketClient.id}`);
+        // console.log(`New connection ${socketClient.id}`);
 
         let productsBefore = await ProductManager.get();
 
@@ -30,11 +30,37 @@ export const initSocket = (httpServer) => {
             io.sockets.emit("listProducts", productsAfter);
         });
 
-        socketClient.on("disconnect", () => {
-            console.log(`Disconnected ${socketClient.id}`);
+        socketClient.on("new-user", (data) => {
+            const fecha = new Date().toTimeString().split(" ")[0]
+            const user = ({
+                id: socketClient.id,
+                name: data.name,
+                date: fecha,
+                img: data.imageUrl,
+            })
+            messages.push(user);
+            socketClient.broadcast.emit("new-user", messages);
+            socketClient.emit("personal-conection", messages);
         });
 
-        socketClient.broadcast.emit('new-client');
+        //msg de enviado 
+        socketClient.on("user-message", (data) => {
+            const fecha = new Date().toTimeString().split(" ")[0]
+            messages.push({
+                id: socketClient.id,
+                name: data.name,
+                message: data.message,
+                date: fecha,
+                img: data.imageUrl,
+            })
+            io.sockets.emit("user-message", messages);
+        });
+
+        // socketClient.on("disconnect", () => {
+        //     console.log(`Disconnected ${socketClient.id}`);
+        // });
+
+        // socketClient.broadcast.emit('new-client');
 
         // socketClient.on('userConection', (data) => {
         //     messages.push({

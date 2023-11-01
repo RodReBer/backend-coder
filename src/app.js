@@ -3,8 +3,9 @@ import express from 'express';
 import path from 'path';
 import productsApiRouter from './routes/api/products.router.js';
 import cartRouter from './routes/api/cart.router.js';
-import realTimeProductsRouter from './routes/views/realTimeProducts.router.js';
+import realTimeProductsViewsRouter from './routes/views/realTimeProducts.router.js';
 import productsViewsRouter from './routes/views/products.router.js';
+import chatViewsRouter from './routes/views/chat.router.js';
 import { __dirname } from './utils.js';
 
 const app = express();
@@ -17,7 +18,7 @@ app.engine('handlebars', handlebars.engine());
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 
-app.use("/", productsViewsRouter, realTimeProductsRouter);
+app.use("/", productsViewsRouter, realTimeProductsViewsRouter, chatViewsRouter);
 
 app.use("/api/products", productsApiRouter);
 
@@ -29,7 +30,5 @@ app.use((error, req, res, next) => {
     res.status(500).json({ status: "error", message });
 })
 
-    
+
 export default app;
-
-
