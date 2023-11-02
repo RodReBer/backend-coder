@@ -24,6 +24,7 @@ export const initSocket = (httpServer) => {
 
 
         socketClient.on("deleteProduct", async (id) => {
+            console.log(id);
             await ProductManager.deleteById(id);
             let productsAfter = await ProductManager.get();
             io.sockets.emit("listProducts", productsAfter);
@@ -49,10 +50,11 @@ export const initSocket = (httpServer) => {
                 socketClient.broadcast.emit("first-new-user", user);
                 socketClient.emit("first-personal-conection", user);
             } else {
-                socketClient.broadcast.emit("new-user", messages);
-                socketClient.emit("personal-conection", messages);
+                socketClient.broadcast.emit("new-user", user, messages);
+                socketClient.emit("personal-conection", user, messages);
             }
         });
+
 
         //msg de enviado 
         socketClient.on("user-message", async (data) => {

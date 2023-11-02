@@ -78,7 +78,7 @@ socket.on("listProducts", (products) => {
             >
               <a
                 href="#"
-                data-id=${product.id}
+                data-id=${product._id}
                 class="text-red-400 hover:text-red-300 btnDelete"
               >Delete<span class="sr-only">${product.id}</span></a>
             </td>
