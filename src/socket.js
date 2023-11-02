@@ -3,9 +3,7 @@ import { __dirname } from './utils.js';
 import ProductManager from "../src/dao/ProductManager.js";
 import MessageManager from "../src/dao/MessageManager.js";
 
-
 let io;
-const messages = [];
 
 export const initSocket = (httpServer) => {
     io = new Server(httpServer);
@@ -21,7 +19,6 @@ export const initSocket = (httpServer) => {
         socketClient.emit('listProducts', productsBefore);
 
         socketClient.emit('listMessages', messagesBefore);
-
 
         socketClient.on("deleteProduct", async (id) => {
             console.log(id);
@@ -55,7 +52,6 @@ export const initSocket = (httpServer) => {
             }
         });
 
-
         //msg de enviado 
         socketClient.on("user-message", async (data) => {
             const hora = new Date().toTimeString().split(" ")[0]
@@ -73,20 +69,5 @@ export const initSocket = (httpServer) => {
             io.sockets.emit("user-message", messages);
         });
 
-        // socketClient.on("disconnect", () => {
-        //     console.log(`Disconnected ${socketClient.id}`);
-        // });
-
-        // socketClient.broadcast.emit('new-client');
-
-        // socketClient.on('userConection', (data) => {
-        //     messages.push({
-        //         id: socketClient.id,
-        //         name: data.user,
-        //         message: `${data.user} Conectado`,
-        //         date: new Date().toTimeString(),
-        //     })
-        //     io.sockets.emit("userConection", messages);
-        // });
     });
 }
