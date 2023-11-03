@@ -9,7 +9,6 @@ export const initSocket = (httpServer) => {
     io = new Server(httpServer);
 
     io.on('connection', async (socketClient) => {
-
         // console.log(`New connection ${socketClient.id}`);
 
         let productsBefore = await ProductManager.get();
@@ -21,7 +20,6 @@ export const initSocket = (httpServer) => {
         socketClient.emit('listMessages', messagesBefore);
 
         socketClient.on("deleteProduct", async (id) => {
-            console.log(id);
             await ProductManager.deleteById(id);
             let productsAfter = await ProductManager.get();
             io.sockets.emit("listProducts", productsAfter);

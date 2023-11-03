@@ -62,7 +62,7 @@ socket.on("listMessages", (data) => {
               class="flex-none py-0.5 text-xs leading-5 text-gray-500"
             >${data[0].date}</time>
           </div>
-          <p class="text-sm leading-6 text-gray-500">${data[0].message}.</p>
+          <p class="text-sm leading-6 text-gray-500">${data[0].message}</p>
         </div>
       </li>`;
 
@@ -87,7 +87,7 @@ socket.on("listMessages", (data) => {
               class="flex-none py-0.5 text-xs leading-5 text-gray-500"
             >${user.date}</time>
           </div>
-          <p class="text-sm leading-6 text-gray-500">${user.message}.</p>
+          <p class="text-sm leading-6 text-gray-500">${user.message}</p>
         </div>
       </li>`;
     });
@@ -250,12 +250,29 @@ socket.on("user-message", (data) => {
               class="flex-none py-0.5 text-xs leading-5 text-gray-500"
             >${user.date}</time>
           </div>
-          <p class="text-sm leading-6 text-gray-500">${user.message}.</p>
+          <p class="text-sm leading-6 text-gray-500">${user.message}</p>
         </div>
       </li>`;
-
   }
-
-
-
 });
+
+// document.getElementById('cargar-imagen').addEventListener('click', function () {
+//   document.getElementById('imagen').click();
+// });
+
+// document.getElementById('imagen').addEventListener('change', function (event) {
+//   const archivo = event.target.files[0];
+//   if (archivo) {
+//     const lector = new FileReader();
+//     lector.onload = function (e) {
+//       const vistaPrevia = document.getElementById('vista-previa');
+//       const imagen = new Image();
+//       imagen.src = e.target.result;
+//       vistaPrevia.innerHTML = '';
+//       vistaPrevia.appendChild(imagen);
+//       imagen.classList.add('h-32', 'w-auto', 'rounded-lg', 'object-cover', "pt-1.5", "pl-1.5");
+//     };
+//     lector.readAsDataURL(archivo);
+//   }
+// });
+

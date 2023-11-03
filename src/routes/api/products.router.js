@@ -7,6 +7,8 @@ const router = Router();
 router.get("/", async (req, res) => {
     const { limit } = req.query;
     const { query = {} } = req;
+    console.log(query)
+    console.log(limit)
     try {
         const products = await ProductManager.get(query);
         if (limit) {
