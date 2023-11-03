@@ -108,7 +108,7 @@ const chatWeb = document.getElementById("chatLink");
 const homeMobile = document.getElementById("homeLinkMobile");
 const realTimeProductsMobile = document.getElementById("realTimeProductsLinkMobile");
 const chatMobile = document.getElementById("chatLinkMobile");
-console.log(window.location.pathname.split("/")[1]);
+
 switch (window.location.pathname.split("/")[1]) {
   case "":
     homeWeb.classList.add("bg-gray-900");
