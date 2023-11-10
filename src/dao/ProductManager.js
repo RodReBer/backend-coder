@@ -10,6 +10,7 @@ export default class ProductManager {
         return productModel.find(criteria);
     }
 
+
     static async getById(id) {
         const product = await productModel.findById(id);
         if (!product) {

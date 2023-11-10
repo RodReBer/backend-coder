@@ -1,4 +1,20 @@
+    <nav class="flex items-center justify-between border border-white rounded-t-lg bg-gray-800 px-4 py-3 sm:px-6 w-full" aria-label="Pagination">
+      <div class="hidden sm:block">
+        <p class="text-sm text-white">
+          Showing
+          <span class="font-medium">{{page}}</span>
+          of
+          <span class="font-medium">{{totalPages}}</span>
+          pages
+        </p>
+      </div>
+      <div class="flex flex-1 justify-between sm:justify-end">
+        <a href="{{prevLink}}" role="button" class="relative inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 {{#unless hasPrevPage}}opacity-50 cursor-not-allowed pointer-events-none{{/unless}}">Previous</a>
+        <a href="{{nextLink}}" role="button" class="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 {{#unless hasNextPage}}opacity-50 cursor-not-allowed pointer-events-none{{/unless}}">Next</a>
+      </div>
+    </nav>
 <div class="w-full bg-white">
+
   <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
     <div class="bg-white">
       <h1
@@ -10,11 +26,11 @@
         <div
           class="mt-6 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
         >
-          {{#each products}}
+          {{#each payload}}
 
             <div class="group relative">
               <div
-                class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+                class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80 group-hover:opacity-75"
               >
                 <img
                   src={{this.thumbnail}}
@@ -26,7 +42,10 @@
                 <div>
                   <h3 class="text-sm text-gray-700">
                     <a href="#">
-                      <span aria-hidden="true" class="absolute inset-0"></span>
+                      <span
+                        aria-hidden="true"
+                        class="absolute inset-x-0 top-0 bottom-20"
+                      ></span>
                       {{this.title}}
                     </a>
                   </h3>
@@ -43,14 +62,18 @@
                 </div>
 
               </div>
+              <button
+                data-id={{this._id}}
+                type="button"
+                class="mt-2 rounded-md bg-gray-700 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 addToCartButton"
+              >Add to cart</button>
             </div>
-
           {{/each}}
         </div>
-
       </div>
     </div>
   </div>
+
 </div>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/index.js"></script>

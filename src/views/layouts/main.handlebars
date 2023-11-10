@@ -27,7 +27,7 @@
                 />
               </div>
               <div class="hidden md:block">
-                <div class="ml-10 flex items-baseline space-x-4">
+                <div class="ml-10 flex items-center space-x-4">
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                   <a
                     id="homeLinkWeb"
@@ -42,9 +42,28 @@
                   >Real Time Products</a>
                   <a
                     id="chatLink"
-                    href="chat"
+                    href="/chat"
                     class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >Chat</a>
+                  <a
+                    id="cartsLink"
+                    href="/carts"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                      />
+                    </svg></a>
                 </div>
               </div>
             </div>
@@ -113,6 +132,26 @@
               href="/chat"
               class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
             >Chat</a>
+            <a
+              id="cartsLinkMobile"
+              href="/cart"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                />
+              </svg></a>
+
           </div>
         </div>
       </nav>
@@ -123,7 +162,7 @@
         </div>
       </header>
       <main>
-        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl pb-6 sm:px-6 lg:px-8">
           {{{body}}}
         </div>
       </main>
@@ -168,6 +207,26 @@
               id="chatLink"
             >Chat</a>
           </div>
+          <div class="pb-6">
+            <a
+              href="/carts"
+              class="text-sm leading-6 text-gray-600 hover:text-gray-500"
+              id="cartsLinkMobile"
+            ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                />
+              </svg></a>
+          </div>
         </nav>
         <div class="mt-10 flex justify-center space-x-10">
           <a href="#" class="text-gray-400 hover:text-gray-500">
@@ -185,7 +244,10 @@
               />
             </svg>
           </a>
-          <a href="#" class="text-gray-400 hover:text-gray-500">
+          <a
+            href="https://www.instagram.com/rodrirey__/"
+            class="text-gray-400 hover:text-gray-500"
+          >
             <span class="sr-only">Instagram</span>
             <svg
               class="h-6 w-6"
@@ -213,7 +275,10 @@
               />
             </svg>
           </a>
-          <a href="#" class="text-gray-400 hover:text-gray-500">
+          <a
+            href="https://github.com/RodReBer"
+            class="text-gray-400 hover:text-gray-500"
+          >
             <span class="sr-only">GitHub</span>
             <svg
               class="h-6 w-6"
@@ -228,7 +293,10 @@
               />
             </svg>
           </a>
-          <a href="#" class="text-gray-400 hover:text-gray-500">
+          <a
+            href="https://www.youtube.com/@rodrigorey9706/videos"
+            class="text-gray-400 hover:text-gray-500"
+          >
             <span class="sr-only">YouTube</span>
             <svg
               class="h-6 w-6"

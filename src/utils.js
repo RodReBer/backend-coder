@@ -10,3 +10,4 @@ export class Exception extends Error {
         this.status = status;
     }
 }
+

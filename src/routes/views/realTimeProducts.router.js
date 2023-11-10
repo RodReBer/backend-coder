@@ -1,11 +1,29 @@
 import { Router } from "express";
-import ProductManager from "../../dao/ProductManager.js";
+import ProductModel from "../../dao/models/product.model.js";
 
 const router = Router();
 
 router.get("/realtimeproducts", async (req, res) => {
-    const products = await ProductManager.get();
-    res.render("realTimeProducts", { title: "Real Time Products", products: products.map(p => p.toJSON()) });
+    const { page = 1, limit = 10 } = req.query;
+    const options = { page, limit };
+    const criteria = {};
+    const result = await ProductModel.paginate(criteria, options)
+    res.render("realTimeProducts", { title: "RK | Real Time Products", ...buildResponse(result) });
 });
+
+const buildResponse = (data) => {
+    return {
+        status: "success",
+        payload: data.docs.map(product => product.toJSON()),
+        totalPages: data.totalPages,
+        prevPage: data.prevPage,
+        nextPage: data.nextPage,
+        page: data.page,
+        hasPrevPage: data.hasPrevPage,
+        hasNextPage: data.hasNextPage,
+        prevLink: data.hasPrevPage ? `http://localhost:8080/realtimeproducts?limit=${data.limit}&page=${data.prevPage}` : "",
+        nextLink: data.hasNextPage ? `http://localhost:8080/realtimeproducts?limit=${data.limit}&page=${data.nextPage}` : "",
+    };
+};
 
 export default router;

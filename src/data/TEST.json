@@ -1,0 +1,802 @@
+[
+  {
+    "title": "Producto 1",
+    "description": "Descripción 1",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo1",
+    "stock": 500
+  },
+  {
+    "title": "Producto 2",
+    "description": "Descripción 2",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo2",
+    "stock": 750
+  },
+  {
+    "title": "Producto 3",
+    "description": "Descripción 3",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo3",
+    "stock": 300
+  },
+  {
+    "title": "Producto 4",
+    "description": "Descripción 4",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo4",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 5",
+    "description": "Descripción 5",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo5",
+    "stock": 800
+  },
+  {
+    "title": "Producto 6",
+    "description": "Descripción 6",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo6",
+    "stock": 600
+  },
+  {
+    "title": "Producto 7",
+    "description": "Descripción 7",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo7",
+    "stock": 400
+  },
+  {
+    "title": "Producto 8",
+    "description": "Descripción 8",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo8",
+    "stock": 900
+  },
+  {
+    "title": "Producto 9",
+    "description": "Descripción 9",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo9",
+    "stock": 700
+  },
+  {
+    "title": "Producto 10",
+    "description": "Descripción 10",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo10",
+    "stock": 800
+  },
+  {
+    "title": "Producto 11",
+    "description": "Descripción 11",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo11",
+    "stock": 300
+  },
+  {
+    "title": "Producto 12",
+    "description": "Descripción 12",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo12",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 13",
+    "description": "Descripción 13",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo13",
+    "stock": 750
+  },
+  {
+    "title": "Producto 14",
+    "description": "Descripción 14",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo14",
+    "stock": 600
+  },
+  {
+    "title": "Producto 15",
+    "description": "Descripción 15",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo15",
+    "stock": 400
+  },
+  {
+    "title": "Producto 16",
+    "description": "Descripción 16",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo16",
+    "stock": 900
+  },
+  {
+    "title": "Producto 17",
+    "description": "Descripción 17",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo17",
+    "stock": 700
+  },
+  {
+    "title": "Producto 18",
+    "description": "Descripción 18",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo18",
+    "stock": 800
+  },
+  {
+    "title": "Producto 19",
+    "description": "Descripción 19",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo19",
+    "stock": 300
+  },
+  {
+    "title": "Producto 20",
+    "description": "Descripción 20",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo20",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 21",
+    "description": "Descripción 21",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo21",
+    "stock": 750
+  },
+  {
+    "title": "Producto 22",
+    "description": "Descripción 22",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo22",
+    "stock": 600
+  },
+  {
+    "title": "Producto 23",
+    "description": "Descripción 23",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo23",
+    "stock": 400
+  },
+  {
+    "title": "Producto 24",
+    "description": "Descripción 24",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo24",
+    "stock": 900
+  },
+  {
+    "title": "Producto 25",
+    "description": "Descripción 25",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo25",
+    "stock": 700
+  },
+  {
+    "title": "Producto 26",
+    "description": "Descripción 26",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo26",
+    "stock": 800
+  },
+  {
+    "title": "Producto 27",
+    "description": "Descripción 27",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo27",
+    "stock": 300
+  },
+  {
+    "title": "Producto 28",
+    "description": "Descripción 28",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo28",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 29",
+    "description": "Descripción 29",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo29",
+    "stock": 750
+  },
+  {
+    "title": "Producto 30",
+    "description": "Descripción 30",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo30",
+    "stock": 600
+  },
+  {
+    "title": "Producto 31",
+    "description": "Descripción 31",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo31",
+    "stock": 400
+  },
+  {
+    "title": "Producto 32",
+    "description": "Descripción 32",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo32",
+    "stock": 900
+  },
+  {
+    "title": "Producto 33",
+    "description": "Descripción 33",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo33",
+    "stock": 700
+  },
+  {
+    "title": "Producto 34",
+    "description": "Descripción 34",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo34",
+    "stock": 800
+  },
+  {
+    "title": "Producto 35",
+    "description": "Descripción 35",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo35",
+    "stock": 300
+  },
+  {
+    "title": "Producto 36",
+    "description": "Descripción 36",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo36",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 37",
+    "description": "Descripción 37",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo37",
+    "stock": 750
+  },
+  {
+    "title": "Producto 38",
+    "description": "Descripción 38",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo38",
+    "stock": 600
+  },
+  {
+    "title": "Producto 39",
+    "description": "Descripción 39",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo39",
+    "stock": 400
+  },
+  {
+    "title": "Producto 40",
+    "description": "Descripción 40",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo40",
+    "stock": 900
+  },
+  {
+    "title": "Producto 41",
+    "description": "Descripción 41",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo41",
+    "stock": 700
+  },
+  {
+    "title": "Producto 42",
+    "description": "Descripción 42",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo42",
+    "stock": 800
+  },
+  {
+    "title": "Producto 43",
+    "description": "Descripción 43",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo43",
+    "stock": 300
+  },
+  {
+    "title": "Producto 44",
+    "description": "Descripción 44",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo44",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 45",
+    "description": "Descripción 45",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo45",
+    "stock": 750
+  },
+  {
+    "title": "Producto 46",
+    "description": "Descripción 46",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo46",
+    "stock": 600
+  },
+  {
+    "title": "Producto 47",
+    "description": "Descripción 47",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo47",
+    "stock": 400
+  },
+  {
+    "title": "Producto 48",
+    "description": "Descripción 48",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo48",
+    "stock": 900
+  },
+  {
+    "title": "Producto 49",
+    "description": "Descripción 49",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo49",
+    "stock": 700
+  },
+  {
+    "title": "Producto 50",
+    "description": "Descripción 50",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo50",
+    "stock": 800
+  },
+  {
+    "title": "Producto 51",
+    "description": "Descripción 51",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo51",
+    "stock": 300
+  },
+  {
+    "title": "Producto 52",
+    "description": "Descripción 52",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo52",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 53",
+    "description": "Descripción 53",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo53",
+    "stock": 750
+  },
+  {
+    "title": "Producto 54",
+    "description": "Descripción 54",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo54",
+    "stock": 600
+  },
+  {
+    "title": "Producto 55",
+    "description": "Descripción 55",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo55",
+    "stock": 400
+  },
+  {
+    "title": "Producto 56",
+    "description": "Descripción 56",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo56",
+    "stock": 900
+  },
+  {
+    "title": "Producto 57",
+    "description": "Descripción 57",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo57",
+    "stock": 700
+  },
+  {
+    "title": "Producto 58",
+    "description": "Descripción 58",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo58",
+    "stock": 800
+  },
+  {
+    "title": "Producto 59",
+    "description": "Descripción 59",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo59",
+    "stock": 300
+  },
+  {
+    "title": "Producto 60",
+    "description": "Descripción 60",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo60",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 61",
+    "description": "Descripción 61",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo61",
+    "stock": 750
+  },
+  {
+    "title": "Producto 62",
+    "description": "Descripción 62",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo62",
+    "stock": 600
+  },
+  {
+    "title": "Producto 63",
+    "description": "Descripción 63",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo63",
+    "stock": 400
+  },
+  {
+    "title": "Producto 64",
+    "description": "Descripción 64",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo64",
+    "stock": 900
+  },
+  {
+    "title": "Producto 65",
+    "description": "Descripción 65",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo65",
+    "stock": 700
+  },
+  {
+    "title": "Producto 66",
+    "description": "Descripción 66",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo66",
+    "stock": 800
+  },
+  {
+    "title": "Producto 67",
+    "description": "Descripción 67",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo67",
+    "stock": 300
+  },
+  {
+    "title": "Producto 68",
+    "description": "Descripción 68",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo68",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 69",
+    "description": "Descripción 69",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo69",
+    "stock": 750
+  },
+  {
+    "title": "Producto 70",
+    "description": "Descripción 70",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo70",
+    "stock": 600
+  },
+  {
+    "title": "Producto 71",
+    "description": "Descripción 71",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo71",
+    "stock": 400
+  },
+  {
+    "title": "Producto 72",
+    "description": "Descripción 72",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo72",
+    "stock": 900
+  },
+  {
+    "title": "Producto 73",
+    "description": "Descripción 73",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo73",
+    "stock": 700
+  },
+  {
+    "title": "Producto 74",
+    "description": "Descripción 74",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo74",
+    "stock": 800
+  },
+  {
+    "title": "Producto 75",
+    "description": "Descripción 75",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo75",
+    "stock": 300
+  },
+  {
+    "title": "Producto 76",
+    "description": "Descripción 76",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo76",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 77",
+    "description": "Descripción 77",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo77",
+    "stock": 750
+  },
+  {
+    "title": "Producto 78",
+    "description": "Descripción 78",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo78",
+    "stock": 600
+  },
+  {
+    "title": "Producto 79",
+    "description": "Descripción 79",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo79",
+    "stock": 400
+  },
+  {
+    "title": "Producto 80",
+    "description": "Descripción 80",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo80",
+    "stock": 900
+  },
+  {
+    "title": "Producto 81",
+    "description": "Descripción 81",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo81",
+    "stock": 700
+  },
+  {
+    "title": "Producto 82",
+    "description": "Descripción 82",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo82",
+    "stock": 800
+  },
+  {
+    "title": "Producto 83",
+    "description": "Descripción 83",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo83",
+    "stock": 300
+  },
+  {
+    "title": "Producto 84",
+    "description": "Descripción 84",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo84",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 85",
+    "description": "Descripción 85",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo85",
+    "stock": 750
+  },
+  {
+    "title": "Producto 86",
+    "description": "Descripción 86",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo86",
+    "stock": 600
+  },
+  {
+    "title": "Producto 87",
+    "description": "Descripción 87",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo87",
+    "stock": 400
+  },
+  {
+    "title": "Producto 88",
+    "description": "Descripción 88",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo88",
+    "stock": 900
+  },
+  {
+    "title": "Producto 89",
+    "description": "Descripción 89",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo89",
+    "stock": 700
+  },
+  {
+    "title": "Producto 90",
+    "description": "Descripción 90",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo90",
+    "stock": 800
+  },
+  {
+    "title": "Producto 91",
+    "description": "Descripción 91",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo91",
+    "stock": 300
+  },
+  {
+    "title": "Producto 92",
+    "description": "Descripción 92",
+    "price": 100.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo92",
+    "stock": 1000
+  },
+  {
+    "title": "Producto 93",
+    "description": "Descripción 93",
+    "price": 90.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo93",
+    "stock": 750
+  },
+  {
+    "title": "Producto 94",
+    "description": "Descripción 94",
+    "price": 80.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo94",
+    "stock": 600
+  },
+  {
+    "title": "Producto 95",
+    "description": "Descripción 95",
+    "price": 120.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo95",
+    "stock": 400
+  },
+  {
+    "title": "Producto 96",
+    "description": "Descripción 96",
+    "price": 110.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo96",
+    "stock": 900
+  },
+  {
+    "title": "Producto 97",
+    "description": "Descripción 97",
+    "price": 99.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo97",
+    "stock": 700
+  },
+  {
+    "title": "Producto 98",
+    "description": "Descripción 98",
+    "price": 89.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo98",
+    "stock": 800
+  },
+  {
+    "title": "Producto 99",
+    "description": "Descripción 99",
+    "price": 79.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo99",
+    "stock": 300
+  },
+  {
+    "title": "Producto 100",
+    "description": "Descripción 100",
+    "price": 149.99,
+    "thumbnail": "https://source.unsplash.com/random/300x200",
+    "code": "codigo100",
+    "stock": 200
+  }
+]

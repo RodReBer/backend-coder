@@ -48,10 +48,51 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-800" id="products">
-                  {{! PRODUCTS }}
+                <tbody class="divide-y divide-gray-800">
+                  {{#each payload}}
+                    <tr>
+                      <td
+                        class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0"
+                      >{{this.title}}</td>
+                      <td
+                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-300"
+                      >{{this._id}}</td>
+                      <td
+                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-300"
+                      >{{this.description}}</td>
+                      <td
+                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-300"
+                      >{{this.price}}</td>
+                      <td
+                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
+                      >
+                        <button
+                          type="button"
+                          data-id={{this._id}}
+                          class="text-red-400 hover:text-red-300 btnDelete"
+                        >Delete<span
+                            class="sr-only"
+                          >{{this._id}}</span></button>
+                      </td>
+                    </tr>
+                  {{/each}}
                 </tbody>
               </table>
+                <nav class="flex items-center justify-between border-t border-white bg-gray-900 px-4 py-3 sm:px-6" aria-label="Pagination">
+                  <div class="hidden sm:block">
+                    <p class="text-sm text-white">
+                      Showing
+                      <span class="font-medium">{{page}}</span>
+                      of
+                      <span class="font-medium">{{totalPages}}</span>
+                      pages
+                    </p>
+                  </div>
+                  <div class="flex flex-1 justify-between sm:justify-end">
+                    <a href="{{prevLink}}" role="button" class="relative inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 {{#unless hasPrevPage}}opacity-50 cursor-not-allowed pointer-events-none{{/unless}}">Previous</a>
+                    <a href="{{nextLink}}" role="button" class="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 {{#unless hasNextPage}}opacity-50 cursor-not-allowed pointer-events-none{{/unless}}">Next</a>
+                  </div>
+                </nav>
             </div>
           </div>
         </div>
