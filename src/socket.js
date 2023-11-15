@@ -19,7 +19,6 @@ export const initSocket = (httpServer) => {
 
         socketClient.emit('listCarts', cartsBefore);
 
-
         socketClient.emit('listMessages', messagesBefore);
 
         socketClient.on("deleteProduct", async (id) => {

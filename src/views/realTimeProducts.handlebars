@@ -1,3 +1,172 @@
+<div class="min-h-full">
+  <nav class="bg-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img
+              class="h-8 w-8"
+              src="https://rodridev.me/img/logo.webp"
+              alt="Your Company"
+            />
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-center space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a
+                id="homeLinkWeb"
+                href="/"
+                class="text-white rounded-md px-3 py-2 text-sm font-medium"
+                aria-current="page"
+              >Home</a>
+              <a
+                id="realTimeProductsLinkWeb"
+                href="/realtimeproducts"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              >Real Time Products</a>
+              <a
+                id="chatLink"
+                href="/chat"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              >Chat</a>
+              <a
+                id="cartsLink"
+                href="/carts"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                  />
+                </svg></a>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="hidden sm:ml-6 sm:flex sm:items-center">
+
+          <div class="relative ml-3">
+            <div>
+              <a
+                href="/profile"                
+                class="relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                id="user-menu-button"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">Open user menu</span>
+                <img
+                  class="h-8 w-8 rounded-full"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="md:hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a
+          href="/"
+          id="homeLinkMobile"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+          aria-current="page"
+        >Home</a>
+        <a
+          id="realTimeProductsLinkMobile"
+          href="/realtimeproducts"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+        >Real Time Products</a>
+        <a
+          id="chatLinkMobile"
+          href="/chat"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+        >Chat</a>
+        <a
+          id="cartsLinkMobile"
+          href="/carts"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+            />
+          </svg></a>
+
+      </div>
+
+    </div>
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="border-t border-gray-200 pb-3 pt-4">
+        <div class="flex items-center px-4">
+          <div class="flex-shrink-0">
+            <img
+              class="h-10 w-10 rounded-full"
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt=""
+            />
+          </div>
+          <div class="ml-3">
+            <div class="text-base font-medium text-white">Rodrigo Rey</div>
+            <div
+              class="text-sm font-medium text-gray-500"
+            >rodri@example.com</div>
+          </div>
+
+        </div>
+        <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+          <a
+            href="/profile"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+          >Your Profile</a>
+          <a
+            href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+          >Settings</a>
+          <a
+            href="/sessions/logout"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+          >Sign out</a>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+
+  <header class="shadow">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-white">Rodrigo Rey</h1>
+    </div>
+  </header>
+  <main>
+    <div class="mx-auto max-w-7xl pb-6 sm:px-6 lg:px-8">
 <div class="bg-gray-900">
   <div class="mx-auto max-w-7xl">
     <div class="bg-gray-900 py-10">
@@ -100,6 +269,12 @@
     </div>
   </div>
 </div>
+<script src="/socket.io/socket.io.js"></script>
+
+<script src="/js/index.js"></script>    </div>
+  </main>
+</div>
+
 <script src="/socket.io/socket.io.js"></script>
 
 <script src="/js/index.js"></script>

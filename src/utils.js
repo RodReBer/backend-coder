@@ -11,3 +11,16 @@ export class Exception extends Error {
     }
 }
 
+export const privateRouter = (req, res, next) => {
+    if (!req.session.user) {
+        return res.redirect("/login");
+    }
+    next();
+}
+
+export const publicRouter = (req, res, next) => {
+    if (req.session.user) {
+        return res.redirect("/profile");
+    }
+    next();
+}

@@ -1,14 +1,15 @@
 import { Router } from "express";
 import ProductModel from "../../dao/models/product.model.js";
+import { privateRouter } from "../../utils.js";
 
 const router = Router();
 
-router.get("/realtimeproducts", async (req, res) => {
+router.get("/realtimeproducts", privateRouter, async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
     const options = { page, limit };
     const criteria = {};
     const result = await ProductModel.paginate(criteria, options)
-    res.render("realTimeProducts", { title: "RK | Real Time Products", ...buildResponse(result) });
+    res.render("realTimeProducts", { title: "RK | Real Time Products", ...buildResponse(result), user: req.session.user });
 });
 
 const buildResponse = (data) => {
