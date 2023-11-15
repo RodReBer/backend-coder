@@ -29,7 +29,7 @@ app.use(expressSession({
     store: MongoStore.create({
         mongoUrl: URI,
         mongoOptions: {},
-        ttl: 10,
+        ttl: 600,
     }),
 }))
 

@@ -54,7 +54,12 @@
 
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
-
+  <a
+            id="signOut"
+            href="/sessions/logout"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+            aria-current="page"
+          >Sign out</a>
           <div class="relative ml-3">
             <div>
               <a
@@ -188,11 +193,11 @@
     <div class="bg-white">
       <h1
         class="text-5xl font-bold tracking-tight text-gray-900 text-center"
-      >Backend <span class="text-blue-900">2023</span></h1>
+      >¡¡Wellcome to Backend <span class="text-indigo-500">2023</span> <span class="capitalize">{{user.first_name}}</span>!!</h1>
       <div
         class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
       >
-        <div
+        <divf
           class="mt-6 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
         >
           {{#each payload}}
@@ -238,7 +243,7 @@
               >Add to cart</button>
             </div>
           {{/each}}
-        </div>
+        </divf>
       </div>
     </div>
   </div>

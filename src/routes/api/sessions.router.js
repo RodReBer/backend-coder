@@ -23,7 +23,7 @@ router.post("/sessions/login", async (req, res) => {
     }
     const { first_name, last_name } = user;
     req.session.user = { first_name, last_name, email };
-    res.redirect("/profile")
+    res.redirect("/")
 });
 
 
