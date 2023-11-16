@@ -1,8 +1,10 @@
 import handlebars from 'express-handlebars';
+import expressSession from 'express-session';
 import express from 'express';
 import path from 'path';
+import passport from 'passport';
 
-
+//routes
 import productsApiRouter from './routes/api/products.router.js';
 import cartRouter from './routes/api/cart.router.js';
 import realTimeProductsViewsRouter from './routes/views/realTimeProducts.router.js';
@@ -14,9 +16,10 @@ import SessionsRouter from './routes/api/sessions.router.js';
 
 import { __dirname } from './utils.js';
 import cookieParser from 'cookie-parser';
-import expressSession from 'express-session';
 import MongoStore from 'connect-mongo';
 import { URI } from './dao/db/mongodb.js';
+
+import { init as initPassportConfig } from "./config/passport.config.js"
 
 const app = express();
 
@@ -38,9 +41,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(cookieParser());
 
+//handlebars
 app.engine('handlebars', handlebars.engine());
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
+
+//passport
+initPassportConfig();
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", productsViewsRouter, realTimeProductsViewsRouter, chatViewsRouter, cartsViewsRouter, indexViewsRouter);
 
@@ -51,7 +60,7 @@ app.use("/api/products", productsApiRouter);
 app.use("/api/carts", cartRouter);
 
 app.use((error, req, res, next) => {
-    const message = `ha ocurrido un error desconocido: (${error.message})`;
+    const message = `An unknown error has occurred: (${error.message})`;
     console.log(message);
     res.status(500).json({ status: "error", message });
 })

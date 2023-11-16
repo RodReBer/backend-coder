@@ -23,4 +23,8 @@ router.get("/sessions/logout", (req, res) => {
     })
 });
 
+router.get("/recovery-password", publicRouter, (req, res) => {
+    res.render("recovery-password", { title: "Recovery Password" })
+});
+
 export default router;
