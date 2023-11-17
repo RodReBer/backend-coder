@@ -16,6 +16,14 @@ router.post('/sessions/login', passport.authenticate('login', { failureRedirect:
     res.redirect('/profile');
 });
 
+
+router.get('/sessions/github', passport.authenticate('github', { scope: ['user:email'] }));
+
+router.get('/sessions/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), (req, res) => {
+    req.session.user = req.user;
+    res.redirect('/profile');
+})
+
 router.post('/sessions/recovery-password', async (req, res) => {
     const { email, newPassword } = req.body;
     const user = await UserModel.findOne({ email });

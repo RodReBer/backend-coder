@@ -4,15 +4,17 @@ import express from 'express';
 import path from 'path';
 import passport from 'passport';
 
-//routes
+//routes api
 import productsApiRouter from './routes/api/products.router.js';
 import cartRouter from './routes/api/cart.router.js';
+import SessionsRouter from './routes/api/sessions.router.js';
+
+//routes views
 import realTimeProductsViewsRouter from './routes/views/realTimeProducts.router.js';
 import indexViewsRouter from './routes/views/index.router.js';
 import productsViewsRouter from './routes/views/products.router.js';
 import chatViewsRouter from './routes/views/chat.router.js';
 import cartsViewsRouter from './routes/views/cart.router.js';
-import SessionsRouter from './routes/api/sessions.router.js';
 
 import { __dirname } from './utils.js';
 import cookieParser from 'cookie-parser';

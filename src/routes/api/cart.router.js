@@ -22,7 +22,6 @@ router.post("/:cid/products/:pid", async (req, res) => {
     const cartId = req.params.cid;
     let productId = req.params.pid;
     res.send(await carts.addProductToCart(productId, cartId));
-
 });
 
 export default router;
