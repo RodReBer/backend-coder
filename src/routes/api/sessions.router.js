@@ -24,6 +24,13 @@ router.get('/sessions/github/callback', passport.authenticate('github', { failur
     res.redirect('/profile');
 })
 
+router.get('/sessions/twitter', passport.authenticate('twitter', { scope: ['user:email'] }));
+
+router.get('/sessions/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), (req, res) => {
+    req.session.user = req.user;
+    res.redirect('/profile');
+})
+
 router.post('/sessions/recovery-password', async (req, res) => {
     const { email, newPassword } = req.body;
     const user = await UserModel.findOne({ email });
