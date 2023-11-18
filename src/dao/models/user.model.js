@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
     age: Number,
     password: String,
     img: String,
+    provider: String,
 }, { timestamps: true });
 
 export default mongoose.model("User", UserSchema);

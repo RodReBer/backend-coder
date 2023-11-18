@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import passport from 'passport';
 
-import { createHash } from '../../utils.js';
+import { createHash, isValidPassword } from '../../utils.js';
 import UserModel from '../../dao/models/user.model.js';
 
 const router = Router();
@@ -15,7 +15,6 @@ router.post('/sessions/login', passport.authenticate('login', { failureRedirect:
     req.session.user = req.user;
     res.redirect('/profile');
 });
-
 
 router.get('/sessions/github', passport.authenticate('github', { scope: ['user:email'] }));
 
